@@ -54,14 +54,15 @@
 						<li>
 							<div class="products-list__descr-block">
 							<div class="products-list__img-wrapper">	{{ getImageDiv image}} </div>
-								<div class="products-list__descr-title">
+								<div class="products-list__descr-title" data-fullTitle ="{{ name }}">
 									{{ name }}
 								</div>
 								<div class="products-list__descr-info">
 									<div class="clearfix">
-										 <div style="float: left">{{ currencyFormatRu price}} x {{ quantity}}</div>
+										 <div style="float: left">{{quantity}} {{ getNumEnding quantity "штука" "штуки" "штук" }} x {{ currencyFormatRu price}}</div>
 										 <div style="float: right">{{ currencyFormatRu (MultiplyTwoNumbers price
 										 quantity)}}</div>
+
 									</div>
 								</div>
 							</div>

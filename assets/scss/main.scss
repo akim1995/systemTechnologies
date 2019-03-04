@@ -7,12 +7,20 @@
 }
 
 
+
+
 $background-color: #eee;
 $text-color: #9e9e9e;
 
 html {
 	font-size: 10px;
 	font-family: Arial, sans-serif;
+	@media (max-width:440px) {
+		font-size: 9px;
+	}
+	@media (max-width:380px) {
+		font-size: 8px;
+	}
 }
 
 body {
@@ -88,12 +96,22 @@ body {
 		margin-top: 8px;
 		position: relative;
 		min-height: 54px;
-		padding-left: 74px;
+		padding-left: 70px;
 		margin-bottom: 10px;
 		color: black;
 	}
 	&__descr-title {
 		margin-bottom: 1rem;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	&__descr-info {
+		font-size: 1.8rem;
+		padding-right: 3rem;
+		@media (max-width: 380px) {
+			padding-right: 0;
+		}
 	}
 	&__img {
 		width: 54px;
@@ -125,11 +143,16 @@ body {
 		transition: max-height .5s;
 		max-height: 0;
 	> li {
-		padding: 10px 30px;
-		border-bottom: 1px solid darken($background-color, 10%);
+		padding: 1rem 3rem;
+		&:not(:last-child) {
+			border-bottom: 1px solid darken($background-color, 10%);
+		}
+		@media (max-width: 410px) {
+			padding: 1rem;
+		}
 	}
 	.document-header {
-		margin-left: .8rem;
+		margin-left: .5rem;
 		margin-bottom: 1rem;
 		cursor: pointer;
 		display: inline-block;
