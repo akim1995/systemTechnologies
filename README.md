@@ -1,6 +1,6 @@
 # systemTechnologies
 
-файл query - содержит sql запрос
+файл query - содержит sql запрос  
 база данных находиться по пути assets/database.db3
 
 ---
