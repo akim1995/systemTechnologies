@@ -1,0 +1,1 @@
+SELECT docs.date, docTypes.name as docType, docs.id, products.name, products.image, products.price, rows.quantity from rows join docs on rows.docId = docs.id join docTypes on docs.typeid = docTypes.id join products on productId = products.id WHERE docs.removed = 0 and docTypes.removed = 0 order by date;

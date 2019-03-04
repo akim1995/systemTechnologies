@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div id="app">
+
+</div>
+
+
+	<script id="appTemplate" type="text/x-handlebars-template">
+
+		<div class="container">
+	<ul class="docs-list">
+		{{#each data}}
+		{{#if @first}}
+		<li class="">
+		{{else}}
+		<li class="collapsed">
+		{{/if}}
+
+			<div class="docs-head">
+				<div style="float: left"> 
+				<div class="docs-head__arrow-icon"></div>
+				{{ formatDate date }}
+				
+				</div>
+				<div style="float: right"> Документов: {{ docs.length }} ({{currencyFormatRu
+				amountForDate}})</div>
+			</div>
+
+			<ul class="day-list">
+				{{#each docs}}
+				<li>
+				<div class="day-list__header clearfix">
+					<div style="float: left">
+						{{ docType }} №{{id}}
+					</div>
+					<div style="float: right">
+						{{ currencyFormatRu amount }}
+					</div>
+				</div>
+				<div class="document-header collapsed">
+				<span class="arrow "></span>
+				Товаров: {{ products.length }}
+				</div>
+					<ul class="products-list">
+						{{#each products}}
+						<li>
+							<div class="products-list__descr-block">
+							<div class="products-list__img-wrapper">	{{ getImageDiv image}} </div>
+								<div class="products-list__descr-title">
+									{{ name }}
+								</div>
+								<div class="products-list__descr-info">
+									<div class="clearfix">
+										 <div style="float: left">{{ currencyFormatRu price}} x {{ quantity}}</div>
+										 <div style="float: right">{{ currencyFormatRu (MultiplyTwoNumbers price
+										 quantity)}}</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						{{/each}}
+					</ul>
+				</li>
+				{{/each}}
+			</ul>
+
+		</li>
+
+		{{/each}}
+	</ul>
+</div>
+
+	</script>
+
+	<script src="js/polyfill.js"></script>
+	<script src="data.js"></script>
+	<script src="handlebars.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
